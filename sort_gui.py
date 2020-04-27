@@ -62,7 +62,7 @@ class Algo:
                 if self.array[j]>self.array[j+1]:
                     self.array[j],self.array[j+1] = self.array[j+1],self.array[j]
                     self.update_bars()
-                    self.bars[j].color = (0,0,255)
+                    self.bars[j].color = (0,0,255)  #This is the element which will be placed to its final position in the current Ith iteration
                     self.update_window()
                     pygame.display.update()
                     pygame.time.delay(10)
@@ -87,7 +87,7 @@ class Algo:
         pivot = self.array[high]     # pivot 
         for j in range(low,high):
             self.bars[j].color = (0,0,255)
-        self.bars[high].color = (0,255,0)
+        self.bars[high].color = (0,255,0)       #pivot is represented in green color
         self.update_window()
         pygame.display.update()
         pygame.time.delay(20)
@@ -99,7 +99,7 @@ class Algo:
 
                 i = i+1
                 self.bars[i].color = (0,0,0)
-                self.bars[j].color = (0,0,0)
+                self.bars[j].color = (0,0,0)       # These two are the element sbeing swapped (represented using black color)
                 self.array[i],self.array[j] = self.array[j],self.array[i]
                 
                 self.update_bars()
@@ -139,10 +139,10 @@ class Algo:
 
         for i in range(0,n1):
             l1.append(self.array[low+i])
-            self.bars[low+i].color = (0,255,0)
+            self.bars[low+i].color = (0,255,0)      #the left subarray is represented in green
         for j in range(0,n2):
             l2.append(self.array[mid+1+j])
-            self.bars[mid+1+j].color = (0,0,255)
+            self.bars[mid+1+j].color = (0,0,255)     # The right subarray is represented in blue
         i,j,k = 0,0,low
         self.update_bars()
         self.update_window()
@@ -151,24 +151,24 @@ class Algo:
         while(i<n1 and j < n2):
             if l1[i] < l2[j]:
                 self.array[k] = l1[i]
-                self.bars[k].color = (255,0,0)
+                self.bars[k].color = (255,0,0)      # at the time of merging the left and right part change their colour back to red
                 i+=1
                 k+=1
             else:
                 self.array[k] = l2[j]
-                self.bars[k].color = (255,0,0)
+                self.bars[k].color = (255,0,0)   # at the time of merging the left and right part change their colour back to red
                 j+=1
                 k+=1
 
 
         while(i<n1):
             self.array[k] = l1[i]
-            self.bars[k].color = (255,0,0)
+            self.bars[k].color = (255,0,0)   # at the time of merging the left and right part change their colour back to red
             i+=1
             k+=1
         while(j<n2):
             self.array[k] = l2[j]
-            self.bars[k].color = (255,0,0)
+            self.bars[k].color = (255,0,0)   # at the time of merging the left and right part change their colour back to red
 
             j+=1
             k+=1
@@ -196,12 +196,12 @@ class Algo:
                 self.array[j+1],self.array[j] = self.array[j],self.array[j+1]
                 
                 j-=1
-                self.bars[j+1].color =(0,0,255) 
+                self.bars[j+1].color =(0,0,255)     # This (Blue bar) is the current element which is being placed to its position in sorted part of the array 
                 self.update_bars()
                 self.update_window()
                 pygame.display.update()
                 pygame.time.delay(10)
-                self.bars[j+1].color =(0,255,0)
+                self.bars[j+1].color =(0,255,0)     # this element is present in the sorted part hence make it green
             self.array[j+1] = current
             self.bars[i].color =(0,255,0) 
             self.update_bars()
