@@ -26,7 +26,7 @@
 
 ### Insertion Sort
 
-   ![](insertion_sort.gif)
+   ![](insetion_sort.gif)
    
  
 ### Quick Sort
